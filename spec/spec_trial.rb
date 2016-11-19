@@ -9,9 +9,9 @@ describe "Scraper" do
     it "uses a CSS selector to return an array of Nokogiri XML elements representing the html links I will be using to get to individual kitten profiles" do
       url = "http://theshelterpetproject.org/search?location=63109&animal=cat&breed=&sex=&size=&age=&offset=0&count=16&page=1"
       links = scraper.get_individual_links(url)
+      expect(links).to be_a(Array)
       links.each do |link|
         expect(link).to be_a(String)
-        expect(link).to include?("pet?id")
       end
     end
   end
