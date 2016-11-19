@@ -4,13 +4,9 @@ require 'open-uri'
 
 class Scraper
 
-	def get_page(url)
-		doc = Nokogiri::HTML(open(url))
-		doc
-	end
 
 	def get_picture_links(url)
-		doc = self.get_page(url)
+			doc = Nokogiri::HTML(open(url, 'User-Agent' => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.854.0 Safari/535.2"))
     	binding.pry
 	end
 
