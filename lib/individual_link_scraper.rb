@@ -16,6 +16,3 @@ class Scraper
 	end
 
 end
-
-scraper= Scraper.new
-scraper.get_picture_links("http://theshelterpetproject.org/search?location=63109&animal=cat&breed=&sex=&size=&age=&offset=0&count=16&page=1")
