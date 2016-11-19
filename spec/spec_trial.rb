@@ -16,4 +16,12 @@ describe "Scraper" do
     end
   end
 
+  describe "#get_kitten_info" do
+    it "uses a CSS selectors to return a hash of attributes for each individual kitten page" do
+      url = "http://theshelterpetproject.org/pet?id=16655758"
+      hash = scraper.get_kitten_info(url)
+      expect(hash).to be_a(Hash)
+    end
+  end
+
 end
