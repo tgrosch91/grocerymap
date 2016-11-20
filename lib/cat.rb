@@ -41,6 +41,7 @@ class Cat
 			end
 		end
 		@@all << self
+		cat
 	end
 
 	def cat_gender=(name)
@@ -60,7 +61,7 @@ class Cat
 
 	def cat_shelter=(name)
 		self.shelter = Shelters.find_or_create_by_name(name)
-		age.add_cat(self)
+		shelter.add_cat(self)
 	end
 
 
@@ -70,5 +71,4 @@ scraper = Scraper.new
 cat_hash = scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=16655758")
 
 cat= Cat.create_by_hash(cat_hash)
-
-print cat
+print Shelters.all
