@@ -1,5 +1,9 @@
 require 'pry'
 require_relative '../lib/scraper'
+require_relative '../lib/breeds'
+require_relative '../lib/genders'
+require_relative '../lib/shelters'
+require_relative '../lib/ages'
 
 class Cat
 
@@ -20,8 +24,23 @@ class Cat
 	end
 
 	def create_by_hash(attributes)
-		attributes.each{|key,value| self.send(("#{key}="), value)}
-		@@all << self)
+		attributes.each do |key,value|
+			case key
+			when :name
+				cat= Cat.new(value)
+			when :gender
+				cat.cat_gender=(value)
+			when :breed
+				cat.cat_breed=(value)
+			when :age
+				cat.cat_age=(value)
+			when :shelter
+				cat.cat_shelter=(value)
+			when :bio
+				self.send(("#{key}="), value)
+			end
+		end
+		@@all << self
 	end
 
 	def cat_gender=(name)
@@ -29,6 +48,20 @@ class Cat
 		gender.add_cat(self)
 	end
 
+	def cat_breed=(name)
+		self.breed = Breed.find_or_create_by_name(name)
+		breed.add_cat(self)
+	end
+
+	def cat_age=(name)
+		self.age = Age.find_or_create_by_name(name)
+		age.add_cat(self)
+	end
+
+	def cat_shelter=(name)
+		self.shelter = Shelter.find_or_create_by_name(name)
+		age.add_cat(self)
+	end
 
 
 end
