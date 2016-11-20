@@ -44,22 +44,22 @@ class Cat
 	end
 
 	def cat_gender=(name)
-		self.gender = Gender.find_or_create_by_name(name)
+		self.gender = Genders.find_or_create_by_name(name)
 		gender.add_cat(self)
 	end
 
 	def cat_breed=(name)
-		self.breed = Breed.find_or_create_by_name(name)
+		self.breed = Breeds.find_or_create_by_name(name)
 		breed.add_cat(self)
 	end
 
 	def cat_age=(name)
-		self.age = Age.find_or_create_by_name(name)
+		self.age = Ages.find_or_create_by_name(name)
 		age.add_cat(self)
 	end
 
 	def cat_shelter=(name)
-		self.shelter = Shelter.find_or_create_by_name(name)
+		self.shelter = Shelters.find_or_create_by_name(name)
 		age.add_cat(self)
 	end
 
@@ -72,3 +72,4 @@ cat_hash = scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=16655
 cat= Cat.new(cat_hash)
 
 print Cat.all
+print Breeds.all
