@@ -1,32 +1,39 @@
 module Cattribute
 
-  def initialize(name)
-    @name = name
-    @cats = []
+  module ClassMethods
+
+    def find(name)
+      self.all.find{|attribute| attribute.name == attribute}
+    end
+
+    def create(name)
+      self.new(name).tap{|attribute| attribute.save}
+    end
+
+    def find_or_create_by_name(name)
+      self.find(name) ? self.find(name) : self.create(name)
+    end
+
   end
 
-  def save
-    @@all<<self
-  end
+  module InstanceMethods
 
-  def self.all
-    @@all
-  end
+    def reset_all
+      self.all.clear
+    end
 
-  def self.find(name)
-    self.all.find{|attribute| attribute.name == attribute}
-  end
+    def count
+      self.all.count
+    end
 
-  def self.create(name)
-    self.new(name).tap{|attribute| attribute.save}
-  end
+    def save
+      self.all<<self
+    end
 
-  def self.find_or_create_by_name(name)
-    self.find(name) ? self.find(name) : self.create(name)
-  end
+    def add_cat(cat_instance)
+      @cats << cat_instance
+    end
 
-  def add_cat(cat_instance)
-    @cats << cat_instance
   end
 
 end
