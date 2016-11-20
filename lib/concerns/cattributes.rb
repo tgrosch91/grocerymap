@@ -2,6 +2,12 @@ module Cattribute
 
   module ClassMethods
 
+    @@all =[]
+
+    def all
+      @@all
+    end
+
     def find(name)
       self.all.find{|attribute| attribute.name == attribute}
     end

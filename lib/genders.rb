@@ -14,9 +14,4 @@ class Genders
 
 	@@all=[]
 
-  def self.all
-    @@all
-  end
-
-
 end

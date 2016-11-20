@@ -23,15 +23,15 @@ class Cat
 	    @@all.clear
 	end
 
-	def create_by_hash(attributes)
+	def self.create_by_hash(attributes)
+		cat_name = attributes[:name]
+		cat = Cat.new(cat_name)
 		attributes.each do |key,value|
 			case key
-			when :name
-				cat= Cat.new(value)
-			when :gender
-				cat.cat_gender=(value)
 			when :breed
 				cat.cat_breed=(value)
+			when :gender
+				cat.cat_gender=(value)
 			when :age
 				cat.cat_age=(value)
 			when :shelter
@@ -69,7 +69,6 @@ end
 scraper = Scraper.new
 cat_hash = scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=16655758")
 
-cat= Cat.new(cat_hash)
+cat= Cat.create_by_hash(cat_hash)
 
-print Cat.all
-print Breeds.all
+print cat
