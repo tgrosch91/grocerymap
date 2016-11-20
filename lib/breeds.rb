@@ -12,6 +12,18 @@ class Breeds
     @cats = []
   end
 
+	def self.create(name)
+		self.new(name).tap{|breed| breed.save}
+	end
+
+	def save
+		 @@all<<self
+  end
+
+	def self.all
+  	@@all
+  end
+
 	@@all = []
 
 end

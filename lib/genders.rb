@@ -12,6 +12,17 @@ class Genders
     @cats = []
   end
 
-	@@all=[]
+  def self.create(name)
+    self.new(name).tap{|gender| gender.save}
+  end
 
+  def save
+     @@all<<self
+  end
+
+  def self.all
+  	@@all
+  end
+
+	@@all = []
 end

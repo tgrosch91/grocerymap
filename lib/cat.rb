@@ -37,7 +37,7 @@ class Cat
 			when :shelter
 				cat.cat_shelter=(value)
 			when :bio
-				self.send(("#{key}="), value)
+				cat.bio = value
 			end
 		end
 		@@all << self

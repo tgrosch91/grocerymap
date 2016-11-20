@@ -12,6 +12,19 @@ class Ages
     @cats = []
   end
 
+  def self.create(name)
+    self.new(name).tap{|age| age.save}
+  end
+
+  def save
+     @@all<<self
+  end
+
+  def self.all
+  	@@all
+  end
+
 	@@all = []
+
 
 end
