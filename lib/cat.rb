@@ -24,11 +24,3 @@ class Cat
 
 
 end
-
-cat_scraper = Scraper.new
-
-cat_hash = cat_scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=16655758")
-
-new_cat= Cat.new(cat_hash)
-
-print Cat.all
