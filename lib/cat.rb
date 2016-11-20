@@ -1,7 +1,6 @@
 require 'pry'
 require_relative '../lib/scraper'
 
-
 class Cat
 
 	attr_accessor :name, :breed, :gender, :age, :shelter, :bio
@@ -18,6 +17,10 @@ class Cat
 	def self.all
 		@@all
 	end
+
+  def self.destroy_all
+    @@all.clear
+  end
 
 
 end
