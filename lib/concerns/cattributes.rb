@@ -2,10 +2,6 @@ module Cattribute
 
   module ClassMethods
 
-    def find(name)
-      self.all.find{|attribute| attribute.name == attribute}
-    end
-
     def find_or_create_by_name(name)
       self.find(name) ? self.find(name) : self.create(name)
     end

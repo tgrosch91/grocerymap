@@ -16,6 +16,10 @@ class Breeds
 		self.new(name).tap{|breed| breed.save}
 	end
 
+	def self.find(name)
+		self.all.find{|breed| breed.name == name}
+	end
+
 	def save
 		 @@all<<self
   end
