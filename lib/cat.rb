@@ -36,11 +36,9 @@ class Cat
 				cat.cat_age=(value)
 			when :shelter
 				cat.cat_shelter=(value)
-			when :bio
-				cat.bio = value
 			end
 		end
-		@@all << self
+		@@all << cat
 		cat
 	end
 
@@ -69,6 +67,7 @@ end
 
 scraper = Scraper.new
 cat_hash = scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=16655758")
-
+cat_hash2 =scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=14316106")
 cat= Cat.create_by_hash(cat_hash)
+cat2 = Cat.create_by_hash(cat_hash2)
 print Shelters.all
