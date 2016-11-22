@@ -8,7 +8,7 @@ require 'open-uri'
 
 require_relative '../lib/cat.rb'
 require_relative '../lib/scraper.rb'
-require_relative '../lib/concers/cattributes.rb'
+require_relative '../lib/concerns/cattributes.rb'
 
 
 require_all 'lib'
