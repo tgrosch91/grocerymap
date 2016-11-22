@@ -36,11 +36,21 @@ def see_cat_details(name)
 	end
 end
 
-scraper = Scraper.new
-cat_hash = scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=16655758")
-cat_hash2 =scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=14316106")
-cat= Cat.create_by_hash(cat_hash)
-cat2 = Cat.create_by_hash(cat_hash2)
-see_options("ages")
-Ages.return_matching_cat_names("Kitten")
-see_cat_details("Kendrick")
+def get_url_from_zipcode(zipcode)
+	url = "http://theshelterpetproject.org/search?location=#{zipcode}&animal=cat&breed=&sex=&size=&age=&offset=0&count=16&page=1"
+	return url
+end
+
+def send_links_to_scraper(scraper, link_array)
+	all_cat_hashes = []
+	link_array.each do |link|
+		all_cat_hashes << scraper.get_kitten_info(link)
+	end
+	all_cat_hashes
+end
+
+def hash_array_to_object(hash_array)
+	hash_array.each do |hash|
+		cat = Cat.create_by_hash(hash)
+	end
+end
