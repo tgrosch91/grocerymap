@@ -16,7 +16,7 @@ module Cattribute
           end
     			end
     		end
-    	print cat_name_array
+    	puts cat_name_array
     end
 
   end

@@ -68,7 +68,8 @@ class Cat
 			each_name = cat.name
 			cat_name_array << each_name
 		end
-		print cat_name_array
+		puts cat_name_array
+		return cat_name_array
 	end
 
 end
