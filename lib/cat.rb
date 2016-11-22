@@ -62,12 +62,13 @@ class Cat
 		shelter.add_cat(self)
 	end
 
+	def self.all_cat_names
+		cat_name_array = []
+		@@all.each do |cat|
+			each_name = cat.name
+			cat_name_array << each_name
+		end
+		print cat_name_array
+	end
 
 end
-
-scraper = Scraper.new
-cat_hash = scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=16655758")
-cat_hash2 =scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=14316106")
-cat= Cat.create_by_hash(cat_hash)
-cat2 = Cat.create_by_hash(cat_hash2)
-print Shelters.all

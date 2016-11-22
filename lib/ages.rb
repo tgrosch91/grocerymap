@@ -16,6 +16,10 @@ class Ages
     self.new(name).tap{|age| age.save}
   end
 
+  def self.find(name)
+    self.all.find{|age| age.name == name}
+  end
+
   def save
      @@all<<self
   end

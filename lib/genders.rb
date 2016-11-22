@@ -16,6 +16,10 @@ class Genders
     self.new(name).tap{|gender| gender.save}
   end
 
+  def self.find(name)
+    self.all.find{|gender| gender.name == name}
+  end
+
   def save
      @@all<<self
   end

@@ -16,6 +16,10 @@ class Shelters
       self.new(name).tap{|shelter| shelter.save}
   end
 
+  def self.find(name)
+    self.all.find{|shelter| shelter.name == name}
+  end
+
   def save
      @@all<<self
   end
