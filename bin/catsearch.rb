@@ -29,16 +29,9 @@ hash_array_to_object(cat_hash_array)
 puts "Here are the first 16 cats in your area."
 cat_name_array = Cat.all_cat_names
 choices_array = ["Gender", "Breed", "Age", "Shelter"]
-def response_choices(cat_name_array,choices_array)
-	response = gets.chomp
-	if cat_name_array.include?(response)
-		see_cat_details(response)
-	elsif choices_array.include?(response)
-		see_options(response)
-	else puts "That is not a valid response. Please enter a name or an attribute to search by:"
-		response_choices(cat_name_array, choices_array)
-	end
-end
 puts "If you would like to see more details, please enter the cat's name."
 puts "If you would like to search by attribute, please enter either Gender, Breed, Age, or Shelter to see the available options."
-response_choices(cat_name_array,choices_array)
+choice = response_choices(cat_name_array,choices_array)
+puts "Please choose one of the above options to view available cats."
+attribute_choice_response = gets.chomp
+results_from_attribute(attribute_choice_response, choice)
