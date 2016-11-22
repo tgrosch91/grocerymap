@@ -6,6 +6,19 @@ module Cattribute
       self.find(name) ? self.find(name) : self.create(name)
     end
 
+    def return_matching_cat_names(type)
+    	cat_name_array = []
+    	self.all.each do |attribute|
+    		if attribute.name == type
+    			attribute.cats.each do |cat|
+    				each_name = cat.name
+    				cat_name_array<<each_name
+          end
+    			end
+    		end
+    	print cat_name_array
+    end
+
   end
 
   module InstanceMethods

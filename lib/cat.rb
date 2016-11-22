@@ -71,12 +71,4 @@ class Cat
 		print cat_name_array
 	end
 
-
 end
-
-scraper = Scraper.new
-cat_hash = scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=16655758")
-cat_hash2 =scraper.get_kitten_info("http://theshelterpetproject.org/pet?id=14316106")
-cat= Cat.create_by_hash(cat_hash)
-cat2 = Cat.create_by_hash(cat_hash2)
-Cat.all_cat_names
