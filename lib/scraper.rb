@@ -22,7 +22,7 @@ class Scraper
 		hash[:breed]=doc.css(".pet_details_left .breed").text.split(/:\s/)[1]
 		hash[:gender]=doc.css(".pet_details_left .gender").text.split(/:\s/)[1]
 		hash[:age]=doc.css(".pet_details_right .age").text.split(/:\s/)[1]
-		hash[:shelter]=doc.css(".locale li:nth-child(2)").text.split(/:\s"|"/)[1]
+		hash[:shelter]=doc.css(".locale li:nth-child(2)").text.split(/:\s/)[1]
 		hash
 	end
 

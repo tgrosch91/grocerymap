@@ -1,27 +1,28 @@
 require 'pry'
 require_relative '../lib/cat.rb'
 
+
 def see_options(choice)
 	option_names = []
 	case choice
-	when "shelters"
+	when "Shelter"
 		Shelters.all.each do |shelter|
 		option_names<<shelter.name
 		end
-	when "ages"
+	when "Age"
 		Ages.all.each do |age|
 		option_names<<age.name
 		end
-	when "genders"
+	when "Gender"
 		Genders.all.each do |gender|
 		option_names<<gender.name
 		end
-	when "breeds"
+	when "Breed"
 		Breeds.all.each do |breed|
 		option_names<<breed.name
 		end
 	end
-	print option_names
+	puts option_names
 end
 
 def see_cat_details(name)
