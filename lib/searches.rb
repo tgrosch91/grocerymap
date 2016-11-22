@@ -29,12 +29,23 @@ def response_choices(cat_name_array,choices_array)
 	response = gets.chomp
 	if cat_name_array.include?(response)
 		see_cat_details(response)
+		exit
 	elsif choices_array.include?(response)
 		see_options(response)
+		return response
 	else puts "That is not a valid response. Please enter a name or an attribute to search by:"
 		response_choices(cat_name_array, choices_array)
 	end
-	return response
+end
+
+def choose_a_cat_from_an_attribute(attribute_cat_array)
+	attribute_cat_choice = gets.chomp
+	if attribute_cat_array.include?(attribute_cat_choice)
+	  see_cat_details(attribute_cat_choice)
+	  exit
+	else puts "That choice was not listed. Please choose another."
+		choose_a_cat_from_an_attribute(attribute_cat_array,attribute_cat_choice)
+	end
 end
 
 def see_cat_details(name)
@@ -96,7 +107,7 @@ def results_from_attribute(attribute_choice_response, choice)
 			end
 		end
 	when "Breed"
-		Shelters.all.each do |breed|
+		Breeds.all.each do |breed|
 			if breed.name == attribute_choice_response
 				breed.cats.each do |cat|
 					cat_option_names<<cat.name
@@ -105,4 +116,5 @@ def results_from_attribute(attribute_choice_response, choice)
 		end
 	end
 	puts cat_option_names
+	return cat_option_names
 end

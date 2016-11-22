@@ -34,4 +34,6 @@ puts "If you would like to search by attribute, please enter either Gender, Bree
 choice = response_choices(cat_name_array,choices_array)
 puts "Please choose one of the above options to view available cats."
 attribute_choice_response = gets.chomp
-results_from_attribute(attribute_choice_response, choice)
+attribute_cat_array=results_from_attribute(attribute_choice_response, choice)
+puts "Please choose one of the above cats to view details."
+choose_a_cat_from_an_attribute(attribute_cat_array)
